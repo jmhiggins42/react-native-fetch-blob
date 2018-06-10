@@ -1,14 +1,9 @@
-## New Maintainers
+# NOTE
+This is a fork of Jolt's [react-native-fetch-blob](https://github.com/joltup/react-native-fetch-blob), which in turn is a fork of [wkh237's](https://github.com/wkh237/react-native-fetch-blob/releases) original version. I have tweaked RNFetchBlob's actionViewIntent function (and created a new actionViewHttpIntent) in order to have them work for "content://" and regular URLs. Below is a copy of Jolt's README.
 
-We make quite a bit of use of react-native-fetch-blob at Jolt and would like to maintain the project.  Feel free to open issues, PRs, etc. here as you would on the original repository.  We will be investigating a new npm namespace under which to publish future versions of this library.
+~ John
 
-<br>
-
-## About Pull Requests
-
-Bugfixes should be applied to the `0.10.9` branch and new features should be applied to the `0.11.0`. Documentation/README updates can be applied directly to `master`.
-
-<br>
+---
 
 # react-native-fetch-blob
 [![release](https://img.shields.io/github/release/wkh237/react-native-fetch-blob.svg?style=flat-square)](https://github.com/wkh237/react-native-fetch-blob/releases) [![npm](https://img.shields.io/npm/v/react-native-fetch-blob.svg?style=flat-square)](https://www.npmjs.com/package/react-native-fetch-blob) ![](https://img.shields.io/badge/PR-Welcome-brightgreen.svg?style=flat-square) [![](https://img.shields.io/badge/Wiki-Public-brightgreen.svg?style=flat-square)](https://github.com/wkh237/react-native-fetch-blob/wiki) [![npm](https://img.shields.io/npm/l/react-native-fetch-blob.svg?maxAge=2592000&style=flat-square)]()
