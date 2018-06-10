@@ -99,7 +99,40 @@ public class RNFetchBlob extends ReactContextBaseJavaModule {
     public void actionViewIntent(String path, String mime, final Promise promise) {
         try {
             Intent intent= new Intent(Intent.ACTION_VIEW)
-                    .setDataAndType(Uri.parse("file://" + path), mime);
+                    .setDataAndType(Uri.parse("content://" + path), mime);
+            intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+            this.getReactApplicationContext().startActivity(intent);
+            ActionViewVisible = true;
+
+            final LifecycleEventListener listener = new LifecycleEventListener() {
+                @Override
+                public void onHostResume() {
+                    if(ActionViewVisible)
+                        promise.resolve(null);
+                    RCTContext.removeLifecycleEventListener(this);
+                }
+
+                @Override
+                public void onHostPause() {
+
+                }
+
+                @Override
+                public void onHostDestroy() {
+
+                }
+            };
+            RCTContext.addLifecycleEventListener(listener);
+        } catch(Exception ex) {
+            promise.reject(ex.getLocalizedMessage());
+        }
+    }
+    
+    @ReactMethod
+    public void actionViewHttpIntent(String path, String mime, final Promise promise) {
+        try {
+            Intent intent= new Intent(Intent.ACTION_VIEW)
+                    .setDataAndType(Uri.parse(path), mime);
             intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
             this.getReactApplicationContext().startActivity(intent);
             ActionViewVisible = true;
